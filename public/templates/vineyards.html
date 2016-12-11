@@ -1,0 +1,15 @@
+<section>
+  <h1>Search for all vineyards</h1>
+  <ul>
+    <li ng-repeat="vineyard in vineyards.all">
+      <a ui-sref="vineyardsShow({ id: vineyard.id })">
+        <img ng-src="{{vineyard.cover_image }}" alt="{{vineyard.cover_image }}">
+        <h2>{{ vineyard.vineyard_name }}</h2>
+        <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
+
+
+      </a>
+    </li>
+
+  </ul>
+</section>
