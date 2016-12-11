@@ -4,3 +4,6 @@
 
 </div>
 <h1>{{ vineyardsShow.vineyard.vineyard_name }}</h1>
+
+<a ng-if="vineyardsShow.isLoggedIn()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</a>
+<button ng-if="vineyardsShow.isLoggedIn()" ng-click="vineyardsShow.delete()">Delete</button>

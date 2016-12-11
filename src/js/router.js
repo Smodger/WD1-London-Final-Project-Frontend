@@ -39,8 +39,12 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/vineyardsShow.html',
       controller: 'VineyardsShowController as vineyardsShow'
     })
-
+    .state('vineyardsEdit', {
+      url: '/vineyards/:id/edit',
+      templateUrl: '/templates/vineyardsEdit.html',
+      controller: 'VineyardsEditController as vineyardsEdit'
+    })
     ;
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/');
 }
