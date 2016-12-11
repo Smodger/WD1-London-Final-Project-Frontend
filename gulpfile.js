@@ -61,13 +61,31 @@ gulp.task('scripts', () => {
 // styles
 gulp.task('styles', () => {
   return gulp.src('src/scss/style.scss')
-    .pipe(plumber())
-    .pipe(sass())
-    .pipe(sourcemaps.init())
-    .pipe(plumber())
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('public/css'));
+   .pipe(plumber())
+   .pipe(sass())
+   .pipe(sourcemaps.init())
+   .pipe(plumber())
+   .pipe(cleanCSS({ compatibility: 'ie8' }))
+   .pipe(sourcemaps.write('./'))
+   .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('styles:vendor', () => {
+  return gulp.src('src/scss/vendor.scss')
+   .pipe(plumber())
+   .pipe(sass())
+   .pipe(sourcemaps.init())
+   .pipe(plumber())
+   .pipe(cleanCSS({ compatibility: 'ie8' }))
+   .pipe(sourcemaps.write('./'))
+   .pipe(gulp.dest('public/css'));
+});
+
+// images
+gulp.task('images', () => {
+  return gulp.src('src/images/*')
+    .pipe(gulp.dest('public/images'))
+    .pipe(livereload());
 });
 
 // html
@@ -92,7 +110,8 @@ gulp.task('watch', () => {
   livereload.listen();
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.js', ['scripts']);
-  gulp.watch('src/**/*.scss', ['styles']);
+  gulp.watch('src/**/*.scss', ['sass']);
+  gulp.watch('src/**/*.scss', ['styles', 'styles:vendor']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'images','styles:vendor', 'html'], 'watch', 'nodemon'));
