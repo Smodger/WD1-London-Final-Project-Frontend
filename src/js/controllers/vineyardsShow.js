@@ -9,9 +9,9 @@ function VineyardsShowController(Vineyard, $state, $auth){
 
   function deleteVineyard() {
     vineyardsShow.vineyard.$remove(() => {
-      $state.go('vineyardsShow');
+      $state.go('vineyardsIndex');
     });
   }
-  vineyardsShow.delete = deleteVineyard;
+  vineyardsShow.deleteVineyard = deleteVineyard;
   vineyardsShow.isLoggedIn = $auth.isAuthenticated;
 }

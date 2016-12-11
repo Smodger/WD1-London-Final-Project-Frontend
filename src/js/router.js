@@ -34,6 +34,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/vineyards.html',
       controller: 'VineyardsController as vineyards'
     })
+    .state('vineyardsNew', {
+      url: '/vineyards/new',
+      templateUrl: '/templates/vineyardsNew.html',
+      controller: 'VineyardsNewController as vineyardsNew'
+    })
     .state('vineyardsShow', {
       url: '/vineyards/:id',
       templateUrl: '/templates/vineyardsShow.html',

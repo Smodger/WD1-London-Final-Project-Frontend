@@ -6,21 +6,18 @@ VineyardsNewController.$inject = ['Vineyard', '$state', '$auth'];
 
 function VineyardsNewController(Vineyard, $state, $auth) {
   const vineyardsNew = this;
-  const currentUser = $auth.getPayload()._id;
-  vineyardsNew.vineyard = {
-    tempImage: {}
-  };
+  const currentUser = $auth.getPayload().id;
+  vineyardsNew.vineyard = {};
+
   vineyardsNew.vineyard.user = currentUser;
 
   function createVineyard() {
 
     // get userId from paylod
-    vineyardsNew.vineyard.user = $auth.getPayload()._id;
+    vineyardsNew.vineyard.user = $auth.getPayload().id;
 
-    // console.log(vineyardsNew.vineyard);
-    // Save vineyard
     Vineyard.save(vineyardsNew.vineyard, (vineyard) => {
-      $state.go('vineyardsShow', { id: vineyard._id });
+      $state.go('vineyardsShow', { id: vineyard.id });
     });
   }
   vineyardsNew.createVineyard = createVineyard;
