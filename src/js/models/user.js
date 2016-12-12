@@ -1,9 +1,9 @@
 angular.module('finalProject')
-  .factory('User', User);
+  .factory('Comment', Comment);
 
-User.$inject = ['$resource', 'API_URL'];
-function User($resource, API_URL) {
-  return new $resource(`${API_URL}/users/:id`, { id: '@id' }, {
+Comment.$inject = ['$resource', 'API_URL'];
+function Comment($resource, API_URL) {
+  return new $resource(`${API_URL}/comments/:id`, { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }

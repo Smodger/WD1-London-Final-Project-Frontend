@@ -2,9 +2,74 @@
 <img ng-src="{{ vineyardsShow.vineyard.cover_image }}" alt="{{ vineyardsShow.vineyard.cover_image }}">
 <!-- <div style="background-image:url('{{ vineyardsShow.vineyard.cover_image }}')">
 </div> -->
+
 <h1>{{ vineyardsShow.vineyard.vineyard_name }}</h1>
-<img ng-src="{{ vineyardsShow.vineyard.image_one }}" alt="{{ vineyardsShow.vineyard.image_one }}">
+<!-- ratings -->
+
+<section>
+  <div class="vineyardDescription">
+    <p>{{ vineyardsShow.vineyard.description }}</p>
+  </div>
+
+    <div class="contactSection">
+          <div class="row">
+            <div class="two columns">
+              <p>Website: {{ vineyardsShow.vineyard.website_url }}</p>
+              <p>Email us: {{ vineyardsShow.vineyard.email }}</p>
+              <p>Address: {{ vineyardsShow.vineyard.address }}</p>
+              <p>Postcode: {{ vineyardsShow.vineyard.postcode }}</p>
+              <p>Country: {{ vineyardsShow.vineyard.country }}</p>
+            </div>
+
+            <div class="two columns">
+              <p>Call us: {{ vineyardsShow.vineyard.phone }}</p>
+              <p>City: {{ vineyardsShow.vineyard.city }}</p>
+              <p>Region: {{ vineyardsShow.vineyard.region }}</p>
+            </div>
+          </div>
+    </div>
+
+    <div class="vineyardFeatures">
+      <h5>Features</h5>
+      <ul>
+        <li>{{ vineyardsShow.vineyard.pet_friendly }}</li>
+        <li>{{ vineyardsShow.vineyard.family_friendly }}</li>
+        <li>{{ vineyardsShow.vineyard.holiday }}</li>
+        <li>{{ vineyardsShow.vineyard.events }}</li>
+        <li>{{ vineyardsShow.vineyard.tours }}</li>
+      <ul>
+    </div>
+
+    <div class="vineyardImages">
+      <h5>See for your self</h5>
+      <ul>
+        <img ng-src="{{ vineyardsShow.vineyard.image_one }}" alt="{{ vineyardsShow.vineyard.image_one}}">
+        <img ng-src="{{ vineyardsShow.vineyard.image_two }}" alt="{{ vineyardsShow.vineyard.image_two}}">
+        <img ng-src="{{ vineyardsShow.vineyard.image_three }}" alt="{{ vineyardsShow.vineyard.image_three}}">
+        <img ng-src="{{ vineyardsShow.vineyard.image_four }}" alt="{{ vineyardsShow.vineyard.image_four}}">
+      <ul>
+    </div>
+
+</section>
+
+  <a ng-if="vineyardsShow.isLoggedIn()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</a>
+  <button ng-if="vineyardsShow.isLoggedIn()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
+
+<h1>Review</h1>
+
+</ul>
+   <li ng-repeat="comment in vineyardsShow.vineyard.comments">
+     <strong>Added by: {{ comment.user.username }}</strong>
+     <img ng-src="{{ comment.user.profile_image }}" alt="{{ comment.user.profile_image }}">
+      <p>{{ comment.body }}</p>
+     <strong>Rating: {{ comment.rating }}</strong>
+   </li>
+</ul>
 
 
-<a ng-if="vineyardsShow.isLoggedIn()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</a>
-<button ng-if="vineyardsShow.isLoggedIn()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
+<form ng-submit="vineyardsShow.addComment()">
+   <input type="text" name="rating" placeholder="add rating" ng-model="vineyardsShow.comment.rating" class="u-full-width">
+
+   <input type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width">
+   <button>Post comment</button>
+ </form>

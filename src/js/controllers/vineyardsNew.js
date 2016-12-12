@@ -5,6 +5,7 @@ angular.module('finalProject')
 VineyardsNewController.$inject = ['Vineyard', '$state', '$auth'];
 
 function VineyardsNewController(Vineyard, $state, $auth) {
+
   const vineyardsNew = this;
   const currentUser = $auth.getPayload().id;
   vineyardsNew.vineyard = {};
@@ -13,7 +14,7 @@ function VineyardsNewController(Vineyard, $state, $auth) {
 
   function createVineyard() {
 
-    // get userId from paylod
+    // get userId from payload
     vineyardsNew.vineyard.user = $auth.getPayload().id;
 
     Vineyard.save(vineyardsNew.vineyard, (vineyard) => {
