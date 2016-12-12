@@ -6,6 +6,7 @@ function MainController($auth, $state, $rootScope){
   const main = this;
 
   main.isLoggedIn = $auth.isAuthenticated;
+  main.userId = $auth.getPayload().id;
 
   function logout(){
     $auth.logout()

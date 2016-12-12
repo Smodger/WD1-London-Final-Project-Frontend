@@ -49,6 +49,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/vineyardsEdit.html',
       controller: 'VineyardsEditController as vineyardsEdit'
     })
+    .state('home', {
+      url: '/',
+      templateUrl: '/templates/home.html',
+      controller: 'LoginController as login'
+    })
+    // .state('commentsNew', {
+    //   url: '/comments/new',
+    //   templateUrl: '/templates/commentsNew.html',
+    //   controller: 'VineyardsShowController as vineyardsShow'
+    // })
     ;
 
   $urlRouterProvider.otherwise('/');

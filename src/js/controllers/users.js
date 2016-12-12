@@ -18,6 +18,13 @@ function UsersShowController(User, $state, $auth){
 
   usersShow.user = User.get($state.params);
 
+  function isCurrentUser() {
+    return $auth.getPayload().id === parseFloat($state.params.id);
+  }
+   // get payload gives us current users id - user ID is IN TOKEN (BACKEND)
+  usersShow.isCurrentUser = isCurrentUser;
+  usersShow.user = User.get($state.params);
+
   function deleteUser() {
     usersShow.user.$remove(() => {
       $state.go('usersIndex');
