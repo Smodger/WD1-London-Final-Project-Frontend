@@ -1,7 +1,7 @@
 angular.module('finalProject')
   .controller('VineyardsShowController', VineyardsShowController);
 
-VineyardsShowController.$inject = ['Vineyard', '$state', '$auth', 'Comment'];
+VineyardsShowController.$inject = ['Vineyard', '$state', 'Comment', '$auth'];
 function VineyardsShowController(Vineyard, $state, Comment, $auth){
   const vineyardsShow = this;
 
