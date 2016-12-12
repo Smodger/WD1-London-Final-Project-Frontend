@@ -1,60 +1,133 @@
+<header class="backPage">
+  <a ui-sref="/vineyards">< home</a>
+</header>
+
 <section>
 
-<h2>My Vineyard</h2>
-  <form ng-submit="vineyardsEdit.update()">
+  <div>
+    <h2>My Vineyard</h2>
+      <form ng-submit="vineyardsEdit.update()">
+        <div>
+          <label>Vineyard Name</label>
+          <input type="text" name="name" placeholder="name" ng-model="vineyardsEdit.vineyard.vineyard_name">
+        </div>
 
+        <div>
+          <label>Your website link</label>
+          <input type="text" name="website_url" placeholder="website link" ng-model="vineyardsEdit.vineyard.website_url">
+        </div>
+  </div>
+
+
+  <div class="contactSection">
+    <h3>Contact Details</h3>
+      <div class="row">
+        <div class="two columns">
+          <div>
+            <label>Email</label>
+            <input class="u-full-width" type="text" name="email" placeholder="email" ng-model="vineyardsEdit.vineyard.email">
+          </div>
+
+          <div>
+            <label>Address</label>
+            <input class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.address">
+          </div>
+
+          <div>
+            <label>Postcode</label>
+            <input class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.postcode">
+          </div>
+
+          <div>
+            <label>Country</label>
+            <input class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.country">
+          </div>
+        </div>
+
+
+        <div class="two columns">
+          <div>
+            <label>Telephone Number</label>
+            <input class="u-full-width" type="text" name="email" placeholder="email" ng-model="vineyardsEdit.vineyard.phone">
+          </div>
+
+          <div>
+            <label>City</label>
+            <input class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.city">
+          </div>
+
+          <div>
+            <label>Region</label>
+            <input class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.region">
+          </div>
+      </div>
+  </div>
+
+
+<div>
+  <h3>Information about your vineyard</h3>
+      <div>
+        <label>Description</label>
+        <textarea class="u-full-width" type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.description"></textarea>
+      </div>
+
+<h3>Features</h3>
+      <div>
+        <ul>
+          <li>
+            <input type="checkbox" name="family_friendly" value="family_friendly" ng-model="vineyardsEdit.vineyard.family_friendly">
+            Family friendly
+          </li>
+          <li>
+            <input type="checkbox" name="family_friendly" value="pet_friendly" ng-model="vineyardsEdit.vineyard.pet_friendly">
+            Pet Friendly
+          </li>
+          <li>
+            <input type="checkbox" name="family_friendly" value="pet_friendly" ng-model="vineyardsEdit.vineyard.events">
+            Can accommodate events
+          </li>
+          <li>
+            <input type="checkbox" name="family_friendly" value="pet_friendly" ng-model="vineyardsEdit.vineyard.holiday">
+            Vineyard getaway
+          </li>
+          <li>
+            <input type="checkbox" name="family_friendly" value="pet_friendly" ng-model="vineyardsEdit.vineyard.tours">
+            Wine experience and tours
+          </li>
+        </ul>
+      </div>
+</div>
+
+
+<h3>Image upload</h3>
     <div>
-      <label>Vineyard Name</label>
-      <input type="text" name="name" placeholder="name" ng-model="vineyardsEdit.vineyard.vineyard_name">
+      <label>Upload a cover image</label>
+      <input type="text" name="image" placeholder="hero image" ng-model="vineyardsEdit.vineyard.cover_image">
     </div>
 
-<h3>Contact Details</h3>
-
+    <h6>Please upload images of your vineyards.</h6>
     <div>
-      <label>Email</label>
-      <input type="text" name="email" placeholder="email" ng-model="vineyardsEdit.vineyard.email">
+      <label>Image 1</label>
+      <input type="text" name="image_one" placeholder="please upload an image" ng-model="vineyardsEdit.vineyard.image_one">
     </div>
 
     <div>
-      <label>Telephone Number</label>
-      <input type="text" name="email" placeholder="email" ng-model="vineyardsEdit.vineyard.phone">
+      <label>Image 2</label>
+      <input type="text" name="image_two" placeholder="please upload an image" ng-model="vineyardsEdit.vineyard.image_two">
     </div>
 
     <div>
-      <label>Your website link</label>
-      <input type="text" name="website_url" placeholder="website link" ng-model="vineyardsEdit.vineyard.website_url">
+      <label>Image 3</label>
+      <input type="text" name="image_three" placeholder="please upload an image" ng-model="vineyardsEdit.vineyard.image_three">
     </div>
 
     <div>
-      <label>Address</label>
-      <input type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.address">
+      <label>Image 4</label>
+      <input type="text" name="image_four" placeholder="please upload an image" ng-model="vineyardsEdit.vineyard.image_four">
     </div>
 
-    <div>
-      <label>Address</label>
-      <input type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.city">
-    </div>
+    <button>SAVE CHANGES</button>
 
-    <div>
-      <label>Region</label>
-      <input type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.region">
-    </div>
-
-
-    <div>
-      <label>Website URL</label>
-      <input type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.image_one">
-    </div>
-
-
-<h3>Upload Images</h3>
-    <div>
-      <label>Vineyard Name</label>
-      <input type="text" name="image" placeholder="image" ng-model="vineyardsEdit.vineyard.image_one">
-    </div>
-
-
-    <button>Update</button>
   </form>
 
 </section>
