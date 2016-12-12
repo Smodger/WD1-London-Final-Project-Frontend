@@ -11,16 +11,17 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth){
     vineyard_id: $state.params.id
   };
 
-  console.log(vineyardsShow.comment);
+  // console.log(vineyardsShow.comment);
 
   function addComment() {
-    Comment.save(vineyardsShow.comment, () => {
-      $state.reload();
+    Comment.save(vineyardsShow.comment, (data) => {
+      console.log(data);
+      vineyardsShow.vineyard.comments.push(data);
+      // $state.reload();
     });
   }
 
-  vineyardsShow.add = addComment;
-
+  vineyardsShow.addComment = addComment;
 
 
   function deleteVineyard() {

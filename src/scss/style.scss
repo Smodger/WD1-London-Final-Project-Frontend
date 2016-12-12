@@ -3,3 +3,75 @@
 body{
   background-color: yellow;
 }
+
+ul {
+  &.features {
+    li {
+      color: red;
+      text-decoration: line-through;
+      &.true {
+        color: green;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+$star-color: blue;
+
+.ratings {
+  div {
+    display: inline-block;
+  }
+  label {
+    font-size: 30px;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  &.rating1 {
+    div {
+      &:nth-child(1) {
+        label {
+          color: $star-color;
+        }
+      }
+    }
+  }
+  &.rating2 {
+    div {
+      &:nth-child(1), &:nth-child(2) {
+        label {
+          color: $star-color;
+        }
+      }
+    }
+  }
+  &.rating3 {
+    div {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        label {
+          color: $star-color;
+        }
+      }
+    }
+  }
+  &.rating4 {
+    div {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        label {
+          color: $star-color;
+        }
+      }
+    }
+  }
+  &.rating5 {
+    div {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5){
+        label {
+          color: $star-color;
+        }
+      }
+    }
+  }
+}

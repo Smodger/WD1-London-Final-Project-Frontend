@@ -10,7 +10,6 @@ function CommentsIndexController(Comment) {
   commentsIndex.all = Comment.query();
 }
 
-//commentsshow
 
 CommentsShowController.$inject = ['Comment', '$state', '$auth'];
 function CommentsShowController(Comment, $state, $auth){
@@ -27,7 +26,7 @@ function CommentsShowController(Comment, $state, $auth){
   commentsShow.isLoggedIn = $auth.isAuthenticated;
 }
 
-//comment edit and update
+
 
 CommentsEditController.$inject = ['Comment', '$state'];
 function CommentsEditController(Comment, $state) {

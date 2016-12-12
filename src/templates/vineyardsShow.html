@@ -31,9 +31,11 @@
 
     <div class="vineyardFeatures">
       <h5>Features</h5>
-      <ul>
-        <li>{{ vineyardsShow.vineyard.pet_friendly }}</li>
-        <li>{{ vineyardsShow.vineyard.family_friendly }}</li>
+      <ul class="features">
+        <!-- <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly!!</li> -->
+        <li ng-class="{true: vineyardsShow.vineyard.pet_friendly}">Pet Friendly!!</li>
+        <!-- <li ng-show="vineyardsShow.vineyard.family_friendly">Family Friendly</li> -->
+        <li ng-class="{true: vineyardsShow.vineyard.family_friendly}">Family Friendly</li>
         <li>{{ vineyardsShow.vineyard.holiday }}</li>
         <li>{{ vineyardsShow.vineyard.events }}</li>
         <li>{{ vineyardsShow.vineyard.tours }}</li>
@@ -55,21 +57,43 @@
   <a ng-if="vineyardsShow.isLoggedIn()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</a>
   <button ng-if="vineyardsShow.isLoggedIn()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
 
-<h1>Review</h1>
-
-</ul>
-   <li ng-repeat="comment in vineyardsShow.vineyard.comments">
-     <strong>Added by: {{ comment.user.username }}</strong>
-     <img ng-src="{{ comment.user.profile_image }}" alt="{{ comment.user.profile_image }}">
-      <p>{{ comment.body }}</p>
-     <strong>Rating: {{ comment.rating }}</strong>
-   </li>
-</ul>
-
+<div class="reviews">
+  <h1>Reviews</h1>
+    </ul>
+       <li ng-repeat="comment in vineyardsShow.vineyard.comments">
+         <strong>Added by: {{ comment.user.username }}</strong>
+         <img ng-src="{{ comment.user.profile_image.url }}" alt="{{ comment.user.profile_image }}">
+          <p>{{ comment.body }}</p>
+         <strong>Rating: {{ comment.rating }}</strong>
+       </li>
+    </ul>
+</div>
 
 <form ng-submit="vineyardsShow.addComment()">
-   <input type="text" name="rating" placeholder="add rating" ng-model="vineyardsShow.comment.rating" class="u-full-width">
+  <!-- <input type="text" name="rating" placeholder="add rating" ng-model="vineyardsShow.comment.rating" class="u-full-width"> -->
+  <div class="ratings" ng-class="'rating'+vineyardsShow.comment.rating">
+    <div>
+      <input type="radio" ng-model="vineyardsShow.comment.rating" value="1" id="rating1">
+      <label for="rating1">&#x2605</label>
+    </div>
+    <div>
+      <input type="radio" ng-model="vineyardsShow.comment.rating" ng-value="2" id="rating2">
+      <label for="rating2">&#x2605</label>
+    </div>
+    <div>
+      <input type="radio" ng-model="vineyardsShow.comment.rating" value="3" id="rating3">
+      <label for="rating3">&#x2605</label>
+    </div>
+    <div>
+      <input type="radio" ng-model="vineyardsShow.comment.rating" value="4" id="rating4">
+      <label for="rating4">&#x2605</label>
+    </div>
+    <div>
+      <input type="radio" ng-model="vineyardsShow.comment.rating" value="5" id="rating5">
+      <label for="rating5">&#x2605</label>
+    </div>
+  </div>
 
-   <input type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width">
-   <button>Post comment</button>
- </form>
+  <input type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width">
+  <button>Post comment</button>
+</form>
