@@ -1,11 +1,21 @@
 angular.module('finalProject')
   .controller('VineyardsShowController', VineyardsShowController);
 
-VineyardsShowController.$inject = ['Vineyard', '$state', 'Comment', '$auth','MapService'];
-function VineyardsShowController(Vineyard, $state, Comment, $auth, MapService){
+VineyardsShowController.$inject = ['Vineyard', '$state', 'Comment', '$auth'];
+function VineyardsShowController(Vineyard, $state, Comment, $auth){
   const vineyardsShow = this;
 
   vineyardsShow.vineyard = Vineyard.get($state.params);
+
+  //     // Google Map
+  // MapService
+  //   .getCoords(vineyardsShow.vineyard.postcode)
+  //   .then(res => {
+  //     vineyardsShow.center = res;
+  //   }, err => {
+  //     console.log(err);
+  //   });
+
 
   function isCurrentUser(){
     console.log('isCurrentUser?', $auth.getPayload().id === parseFloat($state.params.id));
@@ -40,13 +50,5 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth, MapService){
   vineyardsShow.isLoggedIn = $auth.isAuthenticated;
 
 
-      // Google Map
-  MapService
-    .getCoords(vineyardsShow.vineyard.postcode)
-    .then(res => {
-      vineyardsShow.center = res;
-    }, err => {
-      console.log(err);
-    });
 
 }

@@ -58,10 +58,14 @@
   <button ng-show="vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
 
 <!-- map -->
-<section ng-if="vineyardsShow.center">
+<google-map center="{ lat: 52.1, lng: -0.08 }"></google-map>
+
+<!-- <google-map center= "vineyardsShow.center"></google-map> -->
+
+<!-- <section ng-if="vineyardsShow.center">
   <h2 style="text-align: center;">Map</h2>
   <google-map center="vineyardsShow.center"></google-map>
-</section>
+</section> -->
 
 
 <div class="reviews">
