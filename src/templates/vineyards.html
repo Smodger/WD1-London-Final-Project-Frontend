@@ -1,12 +1,14 @@
 <section>
   <h1>Search for all vineyards</h1>
+  <input type="text" ng-model="vineyards.queryString" placeholder="Search by vineyard name or region">
+
   <ul>
-    <li ng-repeat="vineyard in vineyards.all">
+    <li ng-repeat="vineyard in vineyards.all | filter: vineyards.filter">
       <a ui-sref="vineyardsShow({ id: vineyard.id })">
         <img ng-src="{{vineyard.cover_image }}" alt="{{vineyard.cover_image }}">
         <h2>{{ vineyard.vineyard_name }}</h2>
         <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
-
+        {{ vineyard.average_rating }}
 
       </a>
     </li>

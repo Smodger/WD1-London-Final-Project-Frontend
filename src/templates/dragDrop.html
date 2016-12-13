@@ -1,3 +1,4 @@
 <div class="drag-drop" ng-class="{ active: active }">
-  <img src="{{ base64String }}">
+  <p ng-if="!base64">{{ message }}</p>
+  <img src="{{ base64 }}">
 </div>

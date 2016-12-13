@@ -90,13 +90,18 @@ $star-color: blue;
 }
 
 .drag-drop{
-  min-height: 100px;
-  width: 100px;
-  background-color: #fafafa;
+  min-height: 200px;
+  width: 200px;
+  background-color: black;
   border-radius: 5px;
+  line-height: 0;
+  color: white;
+  text-align: center;
+
 
   img{
     width: 200px;
+    height: 200px;
   }
   &.active{
     background-color: #aaa;

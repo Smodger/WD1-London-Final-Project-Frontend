@@ -8,8 +8,14 @@
       <label>Email</label>
       <input type="text" placeholder="email" ng-model="usersEdit.user.email">
     </div>
+
+
     <div class="dragdropContainer">
-      <drag-drop></drag-drop>
+      <p>image</p>
+      <drag-drop base64="usersEdit.user.base64" ng-model="usersEdit.user.profile_image"></drag-drop>
+    </div>
+
+
     <div>
       <label>Profile image</label>
       <input type="text" placeholder="profile image" ng-model="usersEdit.user.profile_image">
