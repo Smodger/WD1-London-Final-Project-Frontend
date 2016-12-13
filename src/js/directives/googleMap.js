@@ -8,23 +8,31 @@ function googleMap($window) {
     replace: true,
     template: '<div class="google-map"></div>',
     scope: {
-      center: '='
+      vineyard: '='
     },
     link: function($scope, element) {
-      const map = new $window.google.maps.Map(element[0], {
-        center: $scope.center,
-        zoom: 14,
-        disableDefaultUI: true,
-        zoomControl: true,
-        scaleControl: true,
-        scrollwheel: false
+      $scope.$watch('center', ()=> {
+        if($scope.center){
+          console.log($scope);
+          const center = new $window.google.maps.LatLng($scope.vineyard.latitude ,$scope.vineyard.longitude);
+          const map = new $window.google.maps.Map(element[0], {
+            center: center,
+            zoom: 14,
+            disableDefaultUI: true,
+            zoomControl: true,
+            scaleControl: true,
+            scrollwheel: false
+          });
+
+          new $window.google.maps.Marker({
+            position: center,
+            map: map,
+            animation: $window.google.maps.Animation.DROP
+          });
+
+        }
       });
 
-      new $window.google.maps.Marker({
-        position: $scope.center,
-        map: map,
-        animation: $window.google.maps.Animation.DROP
-      });
     }
   };
 }

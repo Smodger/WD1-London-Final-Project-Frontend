@@ -88,3 +88,17 @@ $star-color: blue;
 .commentSection {
   text-align: center;
 }
+
+.drag-drop{
+  min-height: 100px;
+  width: 100px;
+  background-color: #fafafa;
+  border-radius: 5px;
+
+  img{
+    width: 200px;
+  }
+  &.active{
+    background-color: #aaa;
+  }
+}
