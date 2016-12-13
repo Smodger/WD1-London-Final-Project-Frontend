@@ -14,14 +14,6 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth, MapService){
   vineyardsShow.isCurrentUser = isCurrentUser;
   vineyardsShow.vineyard = Vineyard.get($state.params);
 
-//
-// function isCurrentUser() {
-//     return $auth.getPayload().id === Number($state.params.id);
-//   }
-//
-//   propsShow.isCurrentUser = isCurrentUser;
-
-
   vineyardsShow.comment = {
     vineyard_id: $state.params.id
   };
@@ -32,7 +24,7 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth, MapService){
     Comment.save(vineyardsShow.comment, (data) => {
       console.log(data);
       vineyardsShow.vineyard.comments.push(data);
-      // $state.reload();
+      $state.reload();
     });
   }
 

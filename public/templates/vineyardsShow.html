@@ -63,49 +63,54 @@
   <google-map center="vineyardsShow.center"></google-map>
 </section>
 
+
 <div class="reviews">
   <h1>Reviews</h1>
     <li ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></li>
 
-    </ul>
+    <ul>
        <li ng-repeat="comment in vineyardsShow.vineyard.comments">
          <strong>Added by: {{ comment.user.username }}</strong>
          <p>Added on: {{comment.user.created_at }}</p>
 
          <!-- <p>Added on: {{comment.user.created_at | 'MMMM Do YYYY' }}</p> -->
 
-
          <img ng-src="{{ comment.user.profile_image.url }}" alt="{{ comment.user.profile_image }}">
-          <p>{{ comment.body }}</p>
+         <p>{{ comment.body }}</p>
          <strong>Rating: {{ comment.rating }}</strong>
        </li>
     </ul>
 </div>
 
-<form ng-submit="vineyardsShow.addComment()">
-  <div class="ratings" ng-class="'rating'+vineyardsShow.comment.rating">
-    <div>
-      <input type="radio" ng-model="vineyardsShow.comment.rating" value="1" id="rating1">
-      <label for="rating1">&#x2605</label>
+<div class="commentSection">
+  <form ng-submit="vineyardsShow.addComment()">
+    <h5>Give your ratings (1/5)</h5>
+    <div class="ratings" ng-class="'rating'+vineyardsShow.comment.rating">
+      <div>
+        <input type="radio" ng-model="vineyardsShow.comment.rating" value="1" id="rating1">
+        <label for="rating1">&#x2605</label>
+      </div>
+      <div>
+        <input type="radio" ng-model="vineyardsShow.comment.rating" ng-value="2" id="rating2">
+        <label for="rating2">&#x2605</label>
+      </div>
+      <div>
+        <input type="radio" ng-model="vineyardsShow.comment.rating" value="3" id="rating3">
+        <label for="rating3">&#x2605</label>
+      </div>
+      <div>
+        <input type="radio" ng-model="vineyardsShow.comment.rating" value="4" id="rating4">
+        <label for="rating4">&#x2605</label>
+      </div>
+      <div>
+        <input type="radio" ng-model="vineyardsShow.comment.rating" value="5" id="rating5">
+        <label for="rating5">&#x2605</label>
+      </div>
     </div>
-    <div>
-      <input type="radio" ng-model="vineyardsShow.comment.rating" ng-value="2" id="rating2">
-      <label for="rating2">&#x2605</label>
-    </div>
-    <div>
-      <input type="radio" ng-model="vineyardsShow.comment.rating" value="3" id="rating3">
-      <label for="rating3">&#x2605</label>
-    </div>
-    <div>
-      <input type="radio" ng-model="vineyardsShow.comment.rating" value="4" id="rating4">
-      <label for="rating4">&#x2605</label>
-    </div>
-    <div>
-      <input type="radio" ng-model="vineyardsShow.comment.rating" value="5" id="rating5">
-      <label for="rating5">&#x2605</label>
-    </div>
-  </div>
 
-  <input type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width">
-  <button>Post comment</button>
-</form>
+    <h5>Share your experience to our community of wine lovers</h5>
+    <textarea type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width"></textarea>
+
+    <button>Post comment</button>
+  </form>
+</div>
