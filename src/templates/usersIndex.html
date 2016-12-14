@@ -1,14 +1,16 @@
 <section>
   <h1>View Users</h1>
-  <ul>
-    <li ng-repeat="user in usersIndex.all">
-      <a ui-sref="usersShow({ id: user.id })">
-        <img ng-src="{{user.profile_image }}" alt="{{user.profile_image }}">
-        <h2>{{ user.username }}</h2>
-        <h4>Contact: {{ user.email }}</h4>
-        <p> Profile summary {{ user.bio }}</p>
-      </a>
-    </li>
+  <div class="usersContainer">
+    <ul class="row">
+      <li ng-repeat="user in usersIndex.all" class="four columns">
+        <a ui-sref="usersShow({ id: user.id })">
+          <img ng-src="{{user.profile_image }}" alt="{{user.profile_image }}">
+          </a>
+          <h2>{{ user.username }}</h2>
+          <h4>Contact: {{ user.email }}</h4>
+          <p>About me: {{ user.bio }}</p>
 
-  </ul>
+      </li>
+    </ul>
+  </div>
 </section>

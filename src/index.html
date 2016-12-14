@@ -10,22 +10,24 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
     <body ng-controller="MainController as main">
-      <header class="container">
+
+      <header>
         <nav>
           <ul>
-            <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-            <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
-            <li><a ui-sref="home">home</a></li>
-            <li><a ui-sref="vineyardsIndex">All vineyards</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref="vineyardsNew">Add vineyards</a></li>
-            <li><a ui-sref="usersIndex">All users</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active">My profile</a></li>
-
+            <div class="left">
+              <li><a ui-sref="home" ui-sref-active="active">unWINE'd</a></li>
+            </div>
+            <div class="right">
+              <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>
+              <li><a ui-sref="vineyardsIndex">All vineyards</a></li>
+              <li ng-if="main.isLoggedIn()"><a ui-sref="vineyardsNew">Add vineyards</a></li>
+              <li><a ui-sref="usersIndex">All users</a></li>
+              <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
+              <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active"><img ng-src="{{ main.user.profile_image }}" alt="my profile"></a></li>
+            </div>
           </ul>
         </nav>
       </header>
-
-
     <main class"container" ui-view></main>
   </body>
 

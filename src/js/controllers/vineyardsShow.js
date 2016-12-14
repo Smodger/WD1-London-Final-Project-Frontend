@@ -6,6 +6,7 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth){
   const vineyardsShow = this;
 
   vineyardsShow.vineyard = Vineyard.get($state.params);
+  console.log(vineyardsShow.vineyard);
 
   //     // Google Map
   // MapService
@@ -39,6 +40,12 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth){
   }
 
   vineyardsShow.addComment = addComment;
+//converts the number into an array of item and returns the count of that item
+  function getNumber(num) {
+    return new Array(num);
+  }
+
+  vineyardsShow.getNumber = getNumber;
 
 
   function deleteVineyard() {

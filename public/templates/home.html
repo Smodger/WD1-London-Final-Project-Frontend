@@ -1,1 +1,46 @@
-<h1>homepage</h1>
+<!-- <h1>homepage</h1> -->
+<div class="parallax">
+  <div id="group1" class="parallax__group">
+    <div class="parallax__layer parallax__layer--base" style="background-image:url('/images/homepage_edited.jpg')">
+        <div class="home">Love wine and needing to unwind?</div>
+    </div>
+  </div>
+
+
+  <div id="group2" class="parallax__group">
+    <div class="parallax__layer parallax__layer--base">
+      <div class="title">Find the perfect indulgement</div>
+                    <li><a ui-sref="vineyardsIndex">All vineyards</a></li>
+
+    </div>
+    <div class="parallax__layer parallax__layer--back" style="background-image:url('images/homepage3.jpg')">
+      <div class="title"></div>
+    </div>
+  </div>
+
+  <div id="group3" class="parallax__group">
+    <div class="parallax__layer parallax__layer--base" style="background-image:url('images/homepage1.jpg')">
+
+      <div class="title">Own a vineyard? Let your vineyard be discovered</div>
+      <div class="subheading" ng-if="main.isLoggedIn()" a ui-sref="vineyardsNew" ui-sref-active="active">Add your vineyard now</div>
+
+    </div>
+    <div class="parallax__layer parallax__layer--back">
+      <div class="title"></div>
+    </div>
+  </div>
+
+  <div id="group4" class="parallax__group">
+    <div class="parallax__layer parallax__layer--base">
+      <div class="title">Join community of wine lovers</div>
+    </div>
+    <div class="parallax__layer parallax__layer--back" style="background-image:url('images/homepage5.jpg')">
+      <div class="home">Share your experience</div>
+    </div>
+  </div>
+
+    <div id="group5" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base" style="background-image:url('images/homepage6.jpg')">
+
+      </div>
+    </div>

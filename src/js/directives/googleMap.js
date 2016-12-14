@@ -11,10 +11,10 @@ function googleMap($window) {
       vineyard: '='
     },
     link: function($scope, element) {
-      $scope.$watch('center', ()=> {
-        if($scope.center){
+      $scope.$watch('vineyard', ()=> {
+        if($scope.vineyard){
           console.log($scope);
-          const center = new $window.google.maps.LatLng($scope.vineyard.latitude ,$scope.vineyard.longitude);
+          const center = new $window.google.maps.LatLng($scope.vineyard.latitude, $scope.vineyard.longitude);
           const map = new $window.google.maps.Map(element[0], {
             center: center,
             zoom: 14,

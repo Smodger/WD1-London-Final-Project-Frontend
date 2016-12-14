@@ -6,7 +6,7 @@
 <h1>{{ vineyardsShow.vineyard.vineyard_name }}</h1>
 <!-- ratings -->
   <div>
-  <h2>Average rating: {{ vineyardsShow.vineyard.average_rating }}</h2>
+  <h2>Average rating:<img src="http://www.vectordiary.com/isd_tutorials/002_honeystar/honey_star.gif" style="width: 40px" ng-repeat="i in vineyardsShow.getNumber(vineyardsShow.vineyard.average_rating) track by $index"></h2>
   </div>
 
 <section>
@@ -15,33 +15,36 @@
   </div>
 
     <div class="contactSection">
-          <div class="row">
-            <div class="two columns">
-              <p>Website: {{ vineyardsShow.vineyard.website_url }}</p>
-              <p>Email us: {{ vineyardsShow.vineyard.email }}</p>
-              <p>Address: {{ vineyardsShow.vineyard.address }}</p>
-              <p>Postcode: {{ vineyardsShow.vineyard.postcode }}</p>
-              <p>Country: {{ vineyardsShow.vineyard.country }}</p>
-            </div>
+      <div class="row">
+        <div class="two columns">
+          <p>Website: {{ vineyardsShow.vineyard.website_url }}</p>
+          <p>Email us: {{ vineyardsShow.vineyard.email }}</p>
+          <p>Address: {{ vineyardsShow.vineyard.address }}</p>
+          <p>Postcode: {{ vineyardsShow.vineyard.postcode }}</p>
+          <p>Country: {{ vineyardsShow.vineyard.country }}</p>
+        </div>
 
-            <div class="two columns">
-              <p>Call us: {{ vineyardsShow.vineyard.phone }}</p>
-              <p>City: {{ vineyardsShow.vineyard.city }}</p>
-              <p>Region: {{ vineyardsShow.vineyard.region }}</p>
-            </div>
-          </div>
+        <div class="two columns">
+          <p>Call us: {{ vineyardsShow.vineyard.phone }}</p>
+          <p>City: {{ vineyardsShow.vineyard.city }}</p>
+          <p>Region: {{ vineyardsShow.vineyard.region }}</p>
+        </div>
+      </div>
     </div>
 
     <div class="vineyardFeatures">
       <h5>Features</h5>
       <ul class="features">
-        <!-- <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly!!</li> -->
-        <li ng-class="{true: vineyardsShow.vineyard.pet_friendly}">Pet Friendly!!</li>
-        <!-- <li ng-show="vineyardsShow.vineyard.family_friendly">Family Friendly</li> -->
-        <li ng-class="{true: vineyardsShow.vineyard.family_friendly}">Family Friendly</li>
-        <li>{{ vineyardsShow.vineyard.holiday }}</li>
-        <li>{{ vineyardsShow.vineyard.events }}</li>
-        <li>{{ vineyardsShow.vineyard.tours }}</li>
+        <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly!!</li>
+        <!-- <li ng-class="{true: vineyardsShow.vineyard.pet_friendly}">Pet Friendly</li> -->
+        <li ng-show="vineyardsShow.vineyard.family_friendly">Family Friendly</li>
+        <!-- <li ng-class="{true: vineyardsShow.vineyard.family_friendly}">Family Friendly</li> -->
+        <li ng-show="vineyardsShow.vineyard.holiday">Vineyard getaway experience</li>
+        <!-- <li ng-class="{true: vineyardsShow.vineyard.holiday}">Vineyard getaway experience</li> -->
+        <li ng-show="vineyardsShow.vineyard.events">Accommodate events</li>
+        <!-- <li ng-class="{true: vineyardsShow.vineyard.events}">Accommodate events</li> -->
+        <li ng-show="vineyardsShow.vineyard.tours">Wine experience and tours</li>
+        <!-- <li ng-class="{true: vineyardsShow.vineyard.tours}">Wine experience and tours</li> -->
       <ul>
     </div>
 
@@ -61,7 +64,7 @@
   <button ng-show="vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
 
 <!-- map -->
-<google-map vineyard="vineyardsShow.vineyard"></google-map>
+<google-map vineyard="vineyardsShow.vineyard" ng-if="vineyardsShow.vineyard.$resolved"></google-map>
 
 <!-- <google-map center= "vineyardsShow.center"></google-map> -->
 
@@ -70,54 +73,57 @@
   <google-map center="vineyardsShow.center"></google-map>
 </section> -->
 
+<div class="viewCommentsSection">
 
-<div class="reviews">
-  <h1>Reviews</h1>
-    <li ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></li>
-
-    <ul>
-       <li ng-repeat="comment in vineyardsShow.vineyard.comments">
-         <strong>Added by: {{ comment.user.username }}</strong>
-         <p>Added on: {{comment.user.created_at }}</p>
-
-         <!-- <p>Added on: {{comment.user.created_at | 'MMMM Do YYYY' }}</p> -->
-
-         <img ng-src="{{ comment.user.profile_image.url }}" alt="{{ comment.user.profile_image }}">
-         <p>{{ comment.body }}</p>
-         <strong>Rating: {{ comment.rating }}</strong>
-       </li>
-    </ul>
 </div>
+  <div class="reviews">
+    <h1>Reviews</h1>
+      <li ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></li>
 
-<div class="commentSection">
-  <form ng-submit="vineyardsShow.addComment()">
-    <h5>Give your ratings (1/5)</h5>
-    <div class="ratings" ng-class="'rating'+vineyardsShow.comment.rating">
-      <div>
-        <input type="radio" ng-model="vineyardsShow.comment.rating" value="1" id="rating1">
-        <label for="rating1">&#x2605</label>
-      </div>
-      <div>
-        <input type="radio" ng-model="vineyardsShow.comment.rating" ng-value="2" id="rating2">
-        <label for="rating2">&#x2605</label>
-      </div>
-      <div>
-        <input type="radio" ng-model="vineyardsShow.comment.rating" value="3" id="rating3">
-        <label for="rating3">&#x2605</label>
-      </div>
-      <div>
-        <input type="radio" ng-model="vineyardsShow.comment.rating" value="4" id="rating4">
-        <label for="rating4">&#x2605</label>
-      </div>
-      <div>
-        <input type="radio" ng-model="vineyardsShow.comment.rating" value="5" id="rating5">
-        <label for="rating5">&#x2605</label>
-      </div>
-    </div>
+      <ul>
+         <li ng-repeat="comment in vineyardsShow.vineyard.comments">
+           <strong>Added by: {{ comment.user.username }}</strong>
+           <p>Added on: {{comment.user.created_at }}</p>
 
-    <h5>Share your experience to our community of wine lovers</h5>
-    <textarea type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width"></textarea>
+           <!-- <p>Added on: {{comment.user.created_at | 'MMMM Do YYYY' }}</p> -->
 
-    <button>Post comment</button>
-  </form>
-</div>
+           <img ng-src="{{ comment.user.profile_image.url }}" alt="{{ comment.user.profile_image }}">
+           <p>{{ comment.body }}</p>
+           <strong>Rating: {{ comment.rating }}</strong>
+         </li>
+      </ul>
+  </div>
+
+  <div class="commentSection">
+    <form ng-submit="vineyardsShow.addComment()">
+      <h5>Share your experience to our community of wine lovers</h5>
+      <textarea type="text" name="body" placeholder="add your review" ng-model="vineyardsShow.comment.body" class="u-full-width"></textarea>
+
+      <h5>Give your ratings (1/5)</h5>
+      <div class="ratings" ng-class="'rating'+vineyardsShow.comment.rating">
+        <div>
+          <input type="radio" ng-model="vineyardsShow.comment.rating" value="1" id="rating1">
+          <label for="rating1">&#x2605</label>
+        </div>
+        <div>
+          <input type="radio" ng-model="vineyardsShow.comment.rating" ng-value="2" id="rating2">
+          <label for="rating2">&#x2605</label>
+        </div>
+        <div>
+          <input type="radio" ng-model="vineyardsShow.comment.rating" value="3" id="rating3">
+          <label for="rating3">&#x2605</label>
+        </div>
+        <div>
+          <input type="radio" ng-model="vineyardsShow.comment.rating" value="4" id="rating4">
+          <label for="rating4">&#x2605</label>
+        </div>
+        <div>
+          <input type="radio" ng-model="vineyardsShow.comment.rating" value="5" id="rating5">
+          <label for="rating5">&#x2605</label>
+        </div>
+      </div>
+
+
+      <button>Post comment</button>
+    </form>
+  </div>

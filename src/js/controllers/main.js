@@ -1,12 +1,13 @@
 angular.module('finalProject')
   .controller('MainController', MainController);
 
-MainController.$inject = ['$auth', '$state', '$rootScope'];
-function MainController($auth, $state, $rootScope){
+MainController.$inject = ['$auth', '$state', '$rootScope', 'User'];
+function MainController($auth, $state, $rootScope, User){
   const main = this;
 
   main.isLoggedIn = $auth.isAuthenticated;
-  main.userId = $auth.getPayload().id;
+
+
 
   function logout(){
     $auth.logout()
@@ -23,6 +24,10 @@ function MainController($auth, $state, $rootScope){
       e.preventDefault();
       $state.go('login');
       main.message= 'you must be logged in to go there';
+    }
+    if ($auth.isAuthenticated()) {
+      main.userId = $auth.getPayload().id;
+      main.user = User.get({ id: main.userId});
     }
   }
   $rootScope.$on('$stateChangeStart', secureState);

@@ -15,4 +15,9 @@ function VineyardsController(Vineyard) {
   vineyards.filter = filter;
   vineyards.all = Vineyard.query();
   // console.log(vineyards);
+
+  function getNumber(num) {
+    return new Array(num);
+  }
+  vineyards.getNumber = getNumber;
 }
