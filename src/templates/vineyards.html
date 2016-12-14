@@ -2,9 +2,9 @@
   <h1>Search for all vineyards</h1>
   <input class="u-full-width" type="text" ng-model="vineyards.queryString" placeholder="Search by vineyard name or region">
 
-  <ul class="row">
-    <li ng-repeat="vineyard in vineyards.all | filter: vineyards.filter" class="four columns">
-      <div class="vineyardsContainer">
+  <div class="center">
+    <div class="row">
+      <div class="vineyardsContainer three columns" ng-repeat="vineyard in vineyards.all | filter: vineyards.filter">
         <a ui-sref="vineyardsShow({ id: vineyard.id })">
           <img ng-src="{{vineyard.cover_image }}" alt="{{vineyard.cover_image }}"></a>
           <h2>Community rating: <img src="http://www.vectordiary.com/isd_tutorials/002_honeystar/honey_star.gif" style="width: 10px; height:10px" ng-repeat="i in vineyards.getNumber(vineyards.vineyard.average_rating) track by $index"></h2>
@@ -13,9 +13,8 @@
           <h2>{{ vineyard.vineyard_name }}</h2>
           <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
         </div>
-
-
+        
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </section>

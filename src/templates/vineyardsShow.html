@@ -75,21 +75,25 @@
 
 <div class="viewCommentsSection">
 
-</div>
   <div class="reviews">
     <h1>Reviews</h1>
       <li ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></li>
 
       <ul>
          <li ng-repeat="comment in vineyardsShow.vineyard.comments">
-           <strong>Added by: {{ comment.user.username }}</strong>
-           <p>Added on: {{comment.user.created_at }}</p>
+<!--
+          comment id:  {{ comment.id }} END
+          profile img {{ comment.user.profile_image }} -->
 
+           <p><strong>Added on: </strong>{{comment.created_at }}</p>
+
+<!-- Works {{ vineyardsShow.vineyard.comments }} -->
            <!-- <p>Added on: {{comment.user.created_at | 'MMMM Do YYYY' }}</p> -->
 
-           <img ng-src="{{ comment.user.profile_image.url }}" alt="{{ comment.user.profile_image }}">
-           <p>{{ comment.body }}</p>
-           <strong>Rating: {{ comment.rating }}</strong>
+           <img ng-src="{{ comment.user.profile_image }}" alt="{{ comment.user.username }}">
+           <p><strong>Added by: </strong>{{ comment.user.username }}</p>
+           <p><strong>Comment: </strong>{{ comment.body }}</p>
+           <p><strong>Rating:</strong> {{ comment.rating }}</p>
          </li>
       </ul>
   </div>
@@ -127,3 +131,4 @@
       <button>Post comment</button>
     </form>
   </div>
+</div>

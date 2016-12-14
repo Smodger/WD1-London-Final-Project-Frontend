@@ -1,21 +1,23 @@
 angular.module('finalProject')
   .controller('VineyardsShowController', VineyardsShowController);
 
-VineyardsShowController.$inject = ['Vineyard', '$state', 'Comment', '$auth'];
-function VineyardsShowController(Vineyard, $state, Comment, $auth){
+VineyardsShowController.$inject = ['Vineyard', '$state', 'Comment', '$auth', 'User'];
+function VineyardsShowController(Vineyard, $state, Comment, $auth, User){
   const vineyardsShow = this;
 
-  vineyardsShow.vineyard = Vineyard.get($state.params);
-  console.log(vineyardsShow.vineyard);
-
-  //     // Google Map
-  // MapService
-  //   .getCoords(vineyardsShow.vineyard.postcode)
-  //   .then(res => {
-  //     vineyardsShow.center = res;
-  //   }, err => {
-  //     console.log(err);
-  //   });
+  // vineyardsShow.vineyard = Vineyard.get($state.params, (res) => {
+  Vineyard.get($state.params, (res) => {
+    // console.log(res);
+    vineyardsShow.vineyard = res;
+    vineyardsShow.vineyard.comments.forEach((comment) => {
+      // console.log(vineyardsShow.vineyard.comments);
+      User.get({id: comment.user_id}, (data) => {
+        // console.log(data);
+        comment.user = data;
+      });
+    });
+    console.log(vineyardsShow.vineyard);
+  });
 
 
   function isCurrentUser(){
@@ -23,13 +25,13 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth){
     return $auth.getPayload().id === parseFloat($state.params.id);
   }
   vineyardsShow.isCurrentUser = isCurrentUser;
-  vineyardsShow.vineyard = Vineyard.get($state.params);
-
+  // vineyardsShow.vineyard = Vineyard.get($state.params);
+  // console.log(vineyardsShow.vineyard);
   vineyardsShow.comment = {
     vineyard_id: $state.params.id
   };
 
-  // console.log(vineyardsShow.comment);
+  // console.log(vineyardsShow.vineyard);
 
   function addComment() {
     Comment.save(vineyardsShow.comment, (data) => {
