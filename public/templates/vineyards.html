@@ -1,6 +1,7 @@
-<section>
-  <h1>Search for all vineyards</h1>
-  <input class="u-full-width" type="text" ng-model="vineyards.queryString" placeholder="Search by vineyard name or region">
+<section class="vineyardsShowSection">
+  <h1>Start exploring vineyards</h1>
+  <input class="u-full-width searchBar" type="text" ng-model="vineyards.queryString" placeholder="Search by vineyard name or region" class="fa fa-search">
+
 
   <div class="center">
     <div class="row">
@@ -13,7 +14,7 @@
           <h2>{{ vineyard.vineyard_name }}</h2>
           <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
         </div>
-        
+
       </div>
     </div>
   </div>

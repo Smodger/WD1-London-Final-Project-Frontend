@@ -2,16 +2,20 @@ angular.module('finalProject')
   .controller('RegisterController', RegisterController)
   .controller('LoginController', LoginController);
 
-RegisterController.$inject = ['$auth', '$state'];
-function RegisterController($auth, $state) {
-  const register = this;
+RegisterController.$inject = ['$auth', '$state', '$window'];
+function RegisterController($auth, $state, $window) {
 
+  const register = this;
   register.user = {};
 
   function submit() {
+
     $auth.signup(register.user)
-      .then(() => {
-        $state.go('login');
+      .then((res) => {
+
+        $window.localStorage.setItem('token', res.data.token);
+
+        $state.go('home');
       });
   }
 
@@ -27,7 +31,7 @@ function LoginController($auth, $state) {
   function submit() {
     $auth.login(login.credentials)
       .then(() => {
-        $state.go('usersIndex');
+        $state.go('home');
       });
   }
 

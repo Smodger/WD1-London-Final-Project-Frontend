@@ -4,11 +4,16 @@
 
 * {
   box-sizing: border-box;
+  text-decoration: none;
 
 }
 
 body{
-  background-color: rgb(255, 252, 252);
+  background-color: rgb(254, 247, 247);
+// font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif;
+
+
 }
 
 main{
@@ -25,7 +30,6 @@ nav {
   z-index: 1;
   position: fixed;
   top: 0;
-
   ul {
     margin: 0;
     overflow: hidden;
@@ -34,7 +38,8 @@ nav {
     }
     .left {
       float: left;
-    }
+      }
+}
     li {
       display: inline-block;
       vertical-align: top;
@@ -54,13 +59,17 @@ nav {
         transition: all 0.2s ease;
         &:hover {
           color: rgba(255,255,255,0.8);
-        }
       }
     }
   }
 }
 
-
+#appname{
+  // font-family: 'Paytone One', sans-serif;
+  font-family: 'Fontdiner Swanky', cursive;
+  font-weight: 200px;
+  font-size: 20px;
+}
 
 // star ratings
 $star-color: blue;
@@ -121,13 +130,13 @@ $star-color: blue;
     }
   }
 }
-
+//////////////////
 .google-map {
   width: 100%;
   height: 400px;
   margin-top: 10px;
 }
-
+///////////////////
 
 .viewCommentsSection{
   background-color: grey;
@@ -156,8 +165,19 @@ $star-color: blue;
 }
 
 ///index page for vineyard
+
+
+.vineyardsShowSection{
+  .searchBar{
+    background-color: rgba(197, 90, 107, 0.40);
+    border: rgba(197, 90, 107, 0.40);
+    color: white;
+  }
+}
+
+
 .vineyardsContainer {
-  background-color: grey;
+  background-color: rgb(238, 238, 238);
   width: 100%;
   height: 600px;
   margin: 2px 20px 14px 0px;

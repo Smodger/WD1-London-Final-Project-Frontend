@@ -2,7 +2,13 @@
 <html ng-app="finalProject">
   <head>
     <meta charset="utf-8">
-    <title>Final Project</title>
+    <title>unWINE'd</title>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran|Fontdiner+Swanky|Paytone+One|Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky|Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran|Fontdiner+Swanky|Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Andika" rel="stylesheet">
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfjjZtXN6tL40LePCdpZ0c2a_YrrIgD0U" charset="utf-8"></script>
@@ -15,7 +21,7 @@
         <nav>
           <ul>
             <div class="left">
-              <li><a ui-sref="home" ui-sref-active="active">unWINE'd</a></li>
+              <li><a id="appname" ui-sref="home" ui-sref-active="active">unWINE'd</a></li>
             </div>
             <div class="right">
               <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>

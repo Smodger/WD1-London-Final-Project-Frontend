@@ -12,7 +12,7 @@ function MainController($auth, $state, $rootScope, User){
   function logout(){
     $auth.logout()
       .then(()=>{
-        $state.go('usersIndex');
+        $state.go('home');
       });
   }
 
