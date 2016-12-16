@@ -116,10 +116,7 @@
            <!-- <p>Added on: {{comment.user.created_at | 'MMMM Do YYYY' }}</p> -->
 
            <img ng-src="{{ comment.user.profile_image }}" alt="{{ comment.user.username }}">
-           <p><strong>Added by: </strong>{{ comment.user.username }}</p>
-
-            <!-- <p><strong>Added by: </strong><a ui-sref="vineyardsShow.users({ id: user.id })">{{ comment.user.username }}</a></p> -->
-
+           <p><strong>Added by: </strong><a ui-sref="usersShow({ id: comment.user.id })">{{ comment.user.username }}</a></p>
            <p><strong>Comment: </strong>{{ comment.body }}</p>
            <p><strong>Rating:</strong> {{ comment.rating }}</p>
            <hr>
