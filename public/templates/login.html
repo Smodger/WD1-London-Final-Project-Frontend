@@ -2,16 +2,20 @@
   <div class="form-popup-inner">
     <form novalidate ng-submit="login.submit()">
       <h1><a ui-sref="home">unWINE'd</a></h1>
-      <div>
-        <input type="email" placeholder="Email" ng-model="login.credentials.email">
-      </div>
-      <div>
-        <input type="password" placeholder="Password" ng-model="login.credentials.password">
-      </div>
+<!-- 
+    <div class="error" ng-if="login.err">
+        <p>Please make sure that your password and email matches</h3>
+    </div> -->
 
+      <div>
+        <input class="email" type="email" placeholder="Email" ng-model="login.credentials.email">
+      </div>
+      <div>
+        <input class="password" type="password" placeholder="Password" ng-model="login.credentials.password">
+      </div>
       <button>Login</button>
     </form>
-<hr>
+    <hr>
     <div>
       <h2>Don't have an account?</h2>
       <button ui-sref="register">Create your account</button>

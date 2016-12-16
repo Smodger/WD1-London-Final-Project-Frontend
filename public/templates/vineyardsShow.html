@@ -44,6 +44,7 @@
 
     <div class="vineyardFeatures">
       <h1>Features</h1>
+
       <ul>
         <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly</li>
         <!-- <li ng-class="{true: vineyardsShow.vineyard.pet_friendly}">Pet Friendly</li> -->
@@ -57,6 +58,15 @@
         <!-- <li ng-class="{true: vineyardsShow.vineyard.tours}">Wine experience and tours</li> -->
       <ul>
     </div>
+
+
+    <a ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })">Would you like to make any changes? Click here.</a>
+    <br>
+    <br>
+    <a ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Remove my vineyard</a>
+
+
+
 
     <div class="vineyardImagesContainer">
       <h1>Where the magic happens </h1>
@@ -74,8 +84,6 @@
 </section>
 
 <!-- ng-if="vineyardShow.isLoggedIn() && usersShow.isCurrentUser()" -->
-  <button ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</button>
-  <button ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
 
 <!-- map -->
 <div class="map">
