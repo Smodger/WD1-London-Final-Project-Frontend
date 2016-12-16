@@ -21,9 +21,9 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth, User){
 
 
   function isCurrentUser(){
-    console.log('isCurrentUser?', $auth.getPayload().id === parseFloat($state.params.id));
-    return $auth.getPayload().id === parseFloat($state.params.id);
+    return $auth.getPayload().id === vineyardsShow.vineyard.user.id;
   }
+  
   vineyardsShow.isCurrentUser = isCurrentUser;
   // vineyardsShow.vineyard = Vineyard.get($state.params);
   // console.log(vineyardsShow.vineyard);

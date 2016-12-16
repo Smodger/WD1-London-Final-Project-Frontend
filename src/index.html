@@ -24,17 +24,24 @@
               <li><a id="appname" ui-sref="home" ui-sref-active="active">unWINE'd</a></li>
             </div>
             <div class="right">
-              <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>
-              <li><a ui-sref="vineyardsIndex">All vineyards</a></li>
-              <li ng-if="main.isLoggedIn()"><a ui-sref="vineyardsNew">Add vineyards</a></li>
-              <li><a ui-sref="usersIndex">All users</a></li>
-              <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
-              <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active"><img ng-src="{{ main.user.profile_image }}" alt="my profile"></a></li>
+            <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active"><img ng-src="{{ main.user.profile_image }}" alt="my profile"></a></li>
+            <li ng-click="main.menuVisible = main.menuVisible ? false : true" class="hamburger">&#9776;</li>
+
+              <div class="dropdown" ng-class="{'open': main.menuVisible}">
+                <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>
+                <li><a ui-sref="vineyardsIndex">Explore Vineyards</a></li>
+                <li><a ui-sref="vineyardsNew">List Vineyards</a></li>
+                <li><a ui-sref="usersIndex">Wine Lovers</a></li>
+                <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
+                <!-- <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active"><img ng-src="{{ main.user.profile_image }}" alt="my profile"></a></li> -->
+              </div>
             </div>
           </ul>
         </nav>
       </header>
-    <main class"container" ui-view></main>
+
+    <main class="container" ui-view></main>
+
   </body>
 
 </html>

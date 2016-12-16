@@ -1,20 +1,32 @@
-<form novalidate ng-submit="register.submit()">
-  <div>
-    <label>Username</label>
-    <input type="text" placeholder="Username" ng-model="register.user.username">
-  </div>
-  <div>
-    <label>Email</label>
-    <input type="email" placeholder="Email" ng-model="register.user.email">
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" placeholder="Password" ng-model="register.user.password">
-  </div>
-  <div>
-    <label>Password Confirmation</label>
-    <input type="password" placeholder="Password Confirmation" ng-model="register.user.password_confirmation">
-  </div>
+<div class="form-popup">
+  <div class="form-popup-inner">
+  <form novalidate ng-submit="register.submit()">
+    <h1><a ui-sref="home">unWINE'd</a></h1>
+    <div>
+      <!-- <label>Username</label> -->
+      <input type="text" placeholder="Username" ng-model="register.user.username">
+    </div>
+    <div>
+      <!-- <label>Email</label> -->
+      <input type="email" placeholder="Email" ng-model="register.user.email">
+    </div>
+    <div>
+      <!-- <label>Password</label> -->
+      <input type="password" placeholder="Password" ng-model="register.user.password">
+    </div>
+    <div>
+      <!-- <label>Password Confirmation</label> -->
+      <input type="password" placeholder="Password Confirmation" ng-model="register.user.password_confirmation">
+    </div>
 
-  <button>Register</button>
-</form>
+    <button>Register</button>
+  </form>
+
+  <hr>
+      <div>
+        <h2>Already have an account?</h2>
+        <button ui-sref="login">Sign In</button>
+      </div>
+    </div>
+  </div>
+</div>

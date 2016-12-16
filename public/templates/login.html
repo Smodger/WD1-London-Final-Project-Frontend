@@ -1,19 +1,20 @@
-<section>
-  <form novalidate ng-submit="login.submit()">
-    <div>
-      <label>Email</label>
-      <input type="email" placeholder="Email" ng-model="login.credentials.email">
-    </div>
-    <div>
-      <label>Password</label>
-      <input type="password" placeholder="Password" ng-model="login.credentials.password">
-    </div>
+<div class="form-popup">
+  <div class="form-popup-inner">
+    <form novalidate ng-submit="login.submit()">
+      <h1><a ui-sref="home">unWINE'd</a></h1>
+      <div>
+        <input type="email" placeholder="Email" ng-model="login.credentials.email">
+      </div>
+      <div>
+        <input type="password" placeholder="Password" ng-model="login.credentials.password">
+      </div>
 
-    <button>Login</button>
-  </form>
-
-  <div>
-    <h2>New member?</h2>
-    <button ui-sref="register">Create your account</button>
+      <button>Login</button>
+    </form>
+<hr>
+    <div>
+      <h2>Don't have an account?</h2>
+      <button ui-sref="register">Create your account</button>
+    </div>
   </div>
-</section>
+</div>

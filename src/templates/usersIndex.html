@@ -1,16 +1,16 @@
 <section>
-  <h1>View Users</h1>
+  <h1>Online Members</h1>
   <div class="usersContainer">
-    <ul class="row">
-      <li ng-repeat="user in usersIndex.all" class="four columns">
+    <div class="row">
+      <div class="three columns" ng-repeat="user in usersIndex.all">
         <a ui-sref="usersShow({ id: user.id })">
           <img ng-src="{{user.profile_image }}" alt="{{user.profile_image }}">
           </a>
           <h2>{{ user.username }}</h2>
-          <h4>Contact: {{ user.email }}</h4>
-          <p>About me: {{ user.bio }}</p>
-
-      </li>
-    </ul>
+          <h2>Contact: {{ user.email }}</h2>
+          <h2>About me:
+            {{ user.bio }}</h2>
+      </div>
+    </div>
   </div>
 </section>

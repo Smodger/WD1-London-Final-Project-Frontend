@@ -1,29 +1,42 @@
-<section>
-  <form ng-submit="usersEdit.update()">
+<div class="userEditSection">
+  <div class="userEditForm">
+    <form ng-submit="usersEdit.update()">
+      <h2>Edit Profile</h2>
+
+<div class="row">
+
+  <div class="four columns">
+    <div class="dragdropContainer">
+      <drag-drop base64="usersEdit.user.base64" ng-model="usersEdit.user.profile_image"></drag-drop>
+    </div>
+  </div>
+
+  <div class="eight columns">
     <div>
       <label>Username</label>
-      <input type="text" placeholder="Username" ng-model="usersEdit.user.username">
+      <input type="text" placeholder="Username" ng-model="usersEdit.user.username" class="u-full-width">
     </div>
     <div>
       <label>Email</label>
-      <input type="text" placeholder="email" ng-model="usersEdit.user.email">
+      <input type="text" placeholder="email" ng-model="usersEdit.user.email" class="u-full-width">
     </div>
+  </div>
+</div>
+
+      <!-- <div>
+        <label>Profile image</label>
+        <input type="text" placeholder="profile image" ng-model="usersEdit.user.profile_image">
+      </div> -->
 
 
-    <div class="dragdropContainer">
-      <p>image</p>
-      <drag-drop base64="usersEdit.user.base64" ng-model="usersEdit.user.profile_image"></drag-drop>
-    </div>
 
 
-    <div>
-      <label>Profile image</label>
-      <input type="text" placeholder="profile image" ng-model="usersEdit.user.profile_image">
-    </div>
-    <div>
-      <label>Your Bio</label>
-      <input type="text" placeholder="enter a brief bio" ng-model="usersEdit.user.bio">
-    </div>
-    <button>update</button>
-  </form>
-</section>
+<hr>
+      <div>
+        <label><h3>Your profile summary</h3></label>
+        <textarea class="u-full-width" type="text" placeholder="Enter a brief bio" ng-model="usersEdit.user.bio"></textarea>
+      </div>
+      <button class="u-full-width">update changes</button>
+    </form>
+  </div>
+</div>

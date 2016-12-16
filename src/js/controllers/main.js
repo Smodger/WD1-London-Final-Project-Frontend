@@ -16,7 +16,7 @@ function MainController($auth, $state, $rootScope, User){
       });
   }
 
-  const protectedStates = ['usersEdit'];
+  const protectedStates = ['usersEdit', 'vineyardsNew', 'vineyardsEdit'];
 // toParams gets the id from url, toState gets the name of the state
   function secureState(e, toState){
     main.message = null;

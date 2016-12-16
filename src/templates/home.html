@@ -2,7 +2,7 @@
 <div class="parallax">
   <div id="group1" class="parallax__group">
     <div class="parallax__layer parallax__layer--base" style="background-image:url('/images/homepage_edited.jpg')">
-        <div class="home">Love wine and needing to unwind?</div>
+        <div class="home">Love wine and looking to unwind?</div>
 
     </div>
   </div>
@@ -10,8 +10,8 @@
 
   <div id="group2" class="parallax__group">
     <div class="parallax__layer parallax__layer--base">
-      <div class="title">Find the perfect indulgement</div>
-      <li><a ui-sref="vineyardsIndex">All vineyards</a></li>
+      <div ui-sref="vineyardsIndex" class="titleWithLink"><p>Find the perfect indulgement</p></div>
+      <!-- <li><a ui-sref="vineyardsIndex">All vineyards</a></li> -->
 
     </div>
     <div class="parallax__layer parallax__layer--back" style="background-image:url('images/homepage3.jpg')">
@@ -22,8 +22,10 @@
   <div id="group3" class="parallax__group">
     <div class="parallax__layer parallax__layer--base" style="background-image:url('images/homepage1.jpg')">
 
-      <div class="title">Own a vineyard? Let your vineyard be discovered</div>
-      <div class="subheading" ng-if="main.isLoggedIn()" a ui-sref="vineyardsNew" ui-sref-active="active">List your vineyard now</div>
+      <div class="title">Own a vineyard? <br>
+        Let your vineyard be discovered.
+      </div>
+      <div ui-sref="vineyardsNew" ui-sref-active="active"><p class="subheading">List your vineyard now</p></div>
 
     </div>
     <div class="parallax__layer parallax__layer--back">
@@ -33,17 +35,14 @@
 
   <div id="group4" class="parallax__group">
     <div class="parallax__layer parallax__layer--base">
-      <div class="title">Join our community of wine lovers</div>
+      <div class="title" ui-sref="register">Join our community of wine lovers</div>
     </div>
     <div class="parallax__layer parallax__layer--back" style="background-image:url('images/homepage5.jpg')">
-      <div class="home">Share your experience</div>
     </div>
   </div>
 
     <div id="group5" class="parallax__group">
       <div class="parallax__layer parallax__layer--base" style="background-image:url('images/homepage6.jpg')">
-      </div>
-    </div>
-        <div class="title">Welcome.</div>
+        <p class="group5">Share your experience</p>
       </div>
     </div>

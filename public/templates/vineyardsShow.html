@@ -1,13 +1,19 @@
 
-<img ng-src="{{ vineyardsShow.vineyard.cover_image }}" alt="{{ vineyardsShow.vineyard.cover_image }}">
-<!-- <div style="background-image:url('{{ vineyardsShow.vineyard.cover_image }}')">
-</div> -->
+<!-- <img ng-src="{{ vineyardsShow.vineyard.cover_image }}" alt="{{ vineyardsShow.vineyard.cover_image }}"> -->
+<div class="heroImage" style="background-image:url('{{ vineyardsShow.vineyard.cover_image }}')">
+</div>
 
-<h1>{{ vineyardsShow.vineyard.vineyard_name }}</h1>
-<!-- ratings -->
-  <div>
-  <h2>Average rating:<img src="http://www.vectordiary.com/isd_tutorials/002_honeystar/honey_star.gif" style="width: 40px" ng-repeat="i in vineyardsShow.getNumber(vineyardsShow.vineyard.average_rating) track by $index"></h2>
+<div class="row">
+  <div class="eight columns">
+    <h1>{{ vineyardsShow.vineyard.vineyard_name }}</h1>
   </div>
+  <div class="four columns">
+  <h4>Average Ratings: <img src="/images/star.png" style="width: 40px" ng-repeat="i in vineyardsShow.getNumber(vineyardsShow.vineyard.average_rating) track by $index"></h4>
+  </div>
+</div>
+
+
+
 
 <section>
   <div class="vineyardDescription">
@@ -15,27 +21,31 @@
   </div>
 
     <div class="contactSection">
+      <h1>Vineyard Details</h1>
       <div class="row">
-        <div class="two columns">
-          <p>Website: {{ vineyardsShow.vineyard.website_url }}</p>
-          <p>Email us: {{ vineyardsShow.vineyard.email }}</p>
-          <p>Address: {{ vineyardsShow.vineyard.address }}</p>
+        <div class="seven columns">
+
+
+          <p>Website: <a href="{{ vineyardsShow.vineyard.website_url }}">wwww.denbies.com</a></p>
+          <p>Email us: <a href="mailto:{{ vineyardsShow.vineyard.email }}">{{ vineyardsShow.vineyard.email }}</a></p>
+          <p>City: {{ vineyardsShow.vineyard.city }}</p>
+
           <p>Postcode: {{ vineyardsShow.vineyard.postcode }}</p>
           <p>Country: {{ vineyardsShow.vineyard.country }}</p>
         </div>
 
-        <div class="two columns">
+        <div class="five columns">
           <p>Call us: {{ vineyardsShow.vineyard.phone }}</p>
-          <p>City: {{ vineyardsShow.vineyard.city }}</p>
+          <p>Address: {{ vineyardsShow.vineyard.address }},</p>
           <p>Region: {{ vineyardsShow.vineyard.region }}</p>
         </div>
       </div>
     </div>
 
     <div class="vineyardFeatures">
-      <h5>Features</h5>
-      <ul class="features">
-        <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly!!</li>
+      <h1>Features</h1>
+      <ul>
+        <li ng-show="vineyardsShow.vineyard.pet_friendly">Pet Friendly</li>
         <!-- <li ng-class="{true: vineyardsShow.vineyard.pet_friendly}">Pet Friendly</li> -->
         <li ng-show="vineyardsShow.vineyard.family_friendly">Family Friendly</li>
         <!-- <li ng-class="{true: vineyardsShow.vineyard.family_friendly}">Family Friendly</li> -->
@@ -48,24 +58,30 @@
       <ul>
     </div>
 
-    <div class="vineyardImages">
-      <h5>See for your self</h5>
-      <ul>
-        <img ng-src="{{ vineyardsShow.vineyard.image_one }}" alt="{{ vineyardsShow.vineyard.image_one}}">
-        <img ng-src="{{ vineyardsShow.vineyard.image_two }}" alt="{{ vineyardsShow.vineyard.image_two}}">
-        <img ng-src="{{ vineyardsShow.vineyard.image_three }}" alt="{{ vineyardsShow.vineyard.image_three}}">
-        <img ng-src="{{ vineyardsShow.vineyard.image_four }}" alt="{{ vineyardsShow.vineyard.image_four}}">
-      <ul>
+    <div class="vineyardImagesContainer">
+      <h1>Where the magic happens </h1>
+      <div class="row">
+        <div class="six columns">
+          <img ng-src="{{ vineyardsShow.vineyard.image_one }}" alt="{{ vineyardsShow.vineyard.image_one}}">
+          <img ng-src="{{ vineyardsShow.vineyard.image_two }}" alt="{{ vineyardsShow.vineyard.image_two}}">
+        </div>
+        <div class="six columns">
+          <img ng-src="{{ vineyardsShow.vineyard.image_three }}" alt="{{ vineyardsShow.vineyard.image_three}}">
+          <img ng-src="{{ vineyardsShow.vineyard.image_four }}" alt="{{ vineyardsShow.vineyard.image_four}}">
+      </div>
     </div>
-
+  </div>
 </section>
 
-  <a ng-show="vineyardsShow.isCurrentUser()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</a>
-  <button ng-show="vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
+<!-- ng-if="vineyardShow.isLoggedIn() && usersShow.isCurrentUser()" -->
+  <button ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ui-sref="vineyardsEdit({ id: vineyardsShow.vineyard.id })" class="button">Edit</button>
+  <button ng-if="vineyardsShow.vineyard.$resolved && vineyardsShow.isCurrentUser()" ng-click="vineyardsShow.deleteVineyard()">Delete</button>
 
 <!-- map -->
+<div class="map">
+<h1>We are here</h1>
 <google-map vineyard="vineyardsShow.vineyard" ng-if="vineyardsShow.vineyard.$resolved"></google-map>
-
+</div>
 <!-- <google-map center= "vineyardsShow.center"></google-map> -->
 
 <!-- <section ng-if="vineyardsShow.center">
@@ -77,10 +93,11 @@
 
   <div class="reviews">
     <h1>Reviews</h1>
-      <li ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></li>
+    <hr>
+      <div ng-if="main.isLoggedIn()"><a ui-sref="commentsNew">Post a review</a></div>
 
-      <ul>
-         <li ng-repeat="comment in vineyardsShow.vineyard.comments">
+      <div>
+         <div ng-repeat="comment in vineyardsShow.vineyard.comments">
 <!--
           comment id:  {{ comment.id }} END
           profile img {{ comment.user.profile_image }} -->
@@ -94,9 +111,11 @@
            <p><strong>Added by: </strong>{{ comment.user.username }}</p>
            <p><strong>Comment: </strong>{{ comment.body }}</p>
            <p><strong>Rating:</strong> {{ comment.rating }}</p>
-         </li>
-      </ul>
+           <hr>
+         </div>
+      </div>
   </div>
+</div>
 
   <div class="commentSection">
     <form ng-submit="vineyardsShow.addComment()">
@@ -128,7 +147,7 @@
       </div>
 
 
-      <button>Post comment</button>
+      <button class="u-full-width">Post comment</button>
     </form>
   </div>
 </div>

@@ -5,16 +5,20 @@
 
   <div class="center">
     <div class="row">
-      <div class="vineyardsContainer three columns" ng-repeat="vineyard in vineyards.all | filter: vineyards.filter">
+      <div class="vineyardsContainer four columns" ng-repeat="vineyard in vineyards.all | filter: vineyards.filter">
         <a ui-sref="vineyardsShow({ id: vineyard.id })">
-          <img ng-src="{{vineyard.cover_image }}" alt="{{vineyard.cover_image }}"></a>
-          <h2>Community rating: <img src="http://www.vectordiary.com/isd_tutorials/002_honeystar/honey_star.gif" style="width: 10px; height:10px" ng-repeat="i in vineyards.getNumber(vineyards.vineyard.average_rating) track by $index"></h2>
-
-        <div class="overlay">
-          <h2>{{ vineyard.vineyard_name }}</h2>
-          <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
-        </div>
-
+          <div class="vineyard-single-image" style="background-image:url('{{vineyard.cover_image }}')">
+            <div class="overlay">
+              <div class="text">
+                <h2>{{ vineyard.vineyard_name }}</h2>
+                <h2>{{ vineyard.region }}, {{ vineyard.country }},</h2>
+              </div>
+            </div>
+          </div>
+        </a>
+          <div class="stars">
+            <img src="/images/star.png" ng-repeat="i in vineyards.getNumber(vineyard.average_rating) track by $index">
+          </div>
       </div>
     </div>
   </div>

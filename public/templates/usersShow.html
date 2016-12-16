@@ -1,12 +1,11 @@
-<section>
+<div class="profileshow">
+  <h1 ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()">My profile</h1>
+    <img ng-src="{{ usersShow.user.profile_image }}" alt="{{ usersShow.user.profile_image }}">
+    <h2>{{ usersShow.user.username }}</h2>
+    <p><u class="underline">ABOUT ME</u> <br>{{ usersShow.user.bio }}</p>
+    <h4 ng-if="!usersShow.isLoggedIn()"><a ui-sref="login">	&#x2709; Contact me</a></h4><p ng-if="usersShow.isLoggedIn()">{{ usersShow.user.email }}</p>
 
-<h1>My profile</h1>
-  <img ng-src="{{ usersShow.user.profile_image }}" alt="{{ usersShow.user.profile_image }}">
-  <h2>{{ usersShow.user.username }}</h2>
-  <h4>Contact: {{ usersShow.user.email }}</h4>
-  <p> Profile summary {{ usersShow.user.bio }}</p>
 
-
-  <a ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-if="usersShow.isLoggedIn()&& usersShow.isCurrentUser()" ng-click="usersShow.delete()">Delete</button>
-</section>
+    <button class="u-full-width" ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit Profile</button>
+    <button class="u-full-width" ng-if="usersShow.isLoggedIn()&& usersShow.isCurrentUser()" ng-click="usersShow.delete()">Deactivate</button>
+</div>
