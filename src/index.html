@@ -28,10 +28,11 @@
             <li ng-click="main.menuVisible = main.menuVisible ? false : true" class="hamburger">&#9776;</li>
 
               <div class="dropdown" ng-class="{'open': main.menuVisible}">
-                <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>
+
                 <li><a ui-sref="vineyardsIndex">Explore Vineyards</a></li>
                 <li><a ui-sref="vineyardsNew">List Vineyards</a></li>
                 <li><a ui-sref="usersIndex">Wine Lovers</a></li>
+                <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Sign In</a></li>
                 <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
                 <!-- <li ng-if="main.isLoggedIn()"><a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active"><img ng-src="{{ main.user.profile_image }}" alt="my profile"></a></li> -->
               </div>

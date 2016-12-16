@@ -23,7 +23,7 @@ function VineyardsShowController(Vineyard, $state, Comment, $auth, User){
   function isCurrentUser(){
     return $auth.getPayload().id === vineyardsShow.vineyard.user.id;
   }
-  
+
   vineyardsShow.isCurrentUser = isCurrentUser;
   // vineyardsShow.vineyard = Vineyard.get($state.params);
   // console.log(vineyardsShow.vineyard);
